@@ -87,7 +87,9 @@ void loop() {
   Ltrigger = PS4.L2();
   Serial.print(steer);
 
-  if(steer <= 127 && steer > stickDrift){//right Turn
+  // Right Turn
+  if(steer <= 127 && steer > stickDrift)
+    {
     int val = map(steer, 0, 127, 255, 0);
     if(abs(Rtrigger) == 1){
       digitalWrite(RightForward, HIGH);
@@ -117,7 +119,10 @@ void loop() {
       Serial.println("Right Stopped");
     }
   }
-  else if(steer >= -127 && steer < -1*stickDrift){//left Turn
+
+  // Left Turn
+  else if(steer >= -127 && steer < -1*stickDrift)
+    {
     int val = map(steer, 0, -127, 255, 0);
     if(abs(Rtrigger) == 1){
       digitalWrite(RightForward, HIGH);
